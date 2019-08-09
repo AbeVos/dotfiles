@@ -30,16 +30,15 @@ filetype plugin indent on    " required
 
 " Enable folding
 set foldmethod=indent
-set foldlevel=99
+set foldlevel=0
+
+let g:SimpylFold_docstring_preview = 1
 
 " Enable folding with spacebar
 nnoremap <space> za
 
 " Set colorscheme
 colorscheme solarized
-
-" SimpylFold configuration
-let g:SimpylFold_docstring_preview = 1
 
 set tabstop=2
 set number
@@ -72,15 +71,18 @@ endif
 
 let g:lightline = {
 	\ 'colorscheme': 'solarized',
-	\ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'fugitive#head'
-  \ },
+	\ 	'active': {
+  \  	 'left': [ [ 'mode', 'paste' ],
+  \  	           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ 	},
+  \ 	'component_function': {
+  \  	  'gitbranch': 'fugitive#head'
+  \ 	},
   \ }
 
 " Highlight trailing whitespace.
 highlight BadWhitespace ctermfg=16 ctermbg=253 guifg=#000000 guibg=#F8F8F0
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" YCM configuration
+let g:ycm_autoclose_preview_window_after_insertion=1
